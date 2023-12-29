@@ -17,7 +17,11 @@ app.set('layout', './layouts/main');
 app.set('view engine', 'ejs'); // Corrected line
 
 app.get('/', function (req, res) {
-    res.render('index', { /* your data here */ });
+    const locals = {
+        title: "Notes-App",
+        description: "Free NodeJs Notes App"
+    }
+    res.render('index',locals);
 });
 
 app.listen(port, () => {
