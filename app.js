@@ -14,15 +14,12 @@ app.use(express.static('public'));
 // templating engine
 app.use(expressLayouts);
 app.set('layout', './layouts/main');
-app.set('view engine', 'ejs'); // Corrected line
+app.set('view engine', 'ejs'); 
 
-app.get('/', function (req, res) {
-    const locals = {
-        title: "Notes-App",
-        description: "Free NodeJs Notes App"
-    }
-    res.render('index',locals);
-});
+
+//Routes
+app.use('/',require('./server/routes/index'));
+
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
